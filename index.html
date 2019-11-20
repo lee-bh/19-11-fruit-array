@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		.fruit{position: absolute; font-size: 2em;
+			font-weight: bold;}
+		#answer{background: red; font-size: 2em;color:white;}
+	</style>
+</head>
+<body>
+	<input type="text" id="answer">
+	<script>
+		var text = "사과 딸기 바나나 포도 복숭아 살구 레몬 망고 자몽 수박 키위 귤";
+		var tArr = text.split(" ");
+		for(var i=0;i<12;i++){
+			var a = document.createElement("div");
+			a.className = "fruit";
+			a.style.left = Math.random()*window.innerWidth + "px";
+			a.style.top = Math.random()*window.innerHeight + "px";
+			a.innerHTML = tArr[i];
+			document.body.appendChild(a);	
+		}
+		
+		window.onkeydown = function(){
+			var a = document.getElementsByClassName('fruit');
+			
+			if(event.keyCode == 13){
+				for(var i=0; i<12; i++){
+					var x = a[i].innerHTML;	
+					if(answer.value == x){
+						a[i].parentNode.removeChild(a[i]);
+						answer.value = ""; 
+						mark += 10;
+					}
+					}
+				}
+			}
+		var mark = 0;
+		setInterval(aa,1000);
+		var time = 60;
+		function aa(){ if(time > 0){time--}; monitor.innerHTML = time;}
+	</script>
+		<div id=monitor style="font-size: 3em;"></div>
+</body>
+</html>
